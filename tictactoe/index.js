@@ -1,9 +1,16 @@
-const player = require("./player");
-const game = require("./game");
-let p1=new player("vivek","X");
-let p2=new player("vilay","O");
-let g1=new game(p1,p2);
 
-g1.markcell(3);
-g1.markcell(7);
+const game = require("./game");
+let g1=new game("vivek","X","vilay","O");
+while(g1.isActive){
+    try{
+        let pos=Math.floor(Math.random() * 9);
+        g1.markcell(pos);
+        
+    }catch(error){
+        console.log("Error while playing => ",error);
+    
+    }
+} 
+
+
 // g1.analyseResult();
